@@ -10,7 +10,17 @@ import {
   useBarAndLineChartsWrapper,
 } from 'gifted-charts-core';
 
-const BarAndLineChartsWrapper = (props: BarAndLineChartsWrapperTypes) => {
+type BarChartScrollTryDirection = 'LEFT' | 'RIGHT';
+
+export type OnTryScrollHanlder = (
+  direction: BarChartScrollTryDirection,
+) => void;
+
+const BarAndLineChartsWrapper = (
+  props: BarAndLineChartsWrapperTypes & {
+    onTryScroll?: OnTryScrollHanlder;
+  },
+) => {
   const {
     chartType,
     containerHeight,
@@ -150,8 +160,8 @@ const BarAndLineChartsWrapper = (props: BarAndLineChartsWrapperTypes) => {
                   (props.width ? 20 : 0) -
                   (data[data.length - 1]?.barWidth ?? barWidth ?? 0) / 2
                 : yAxisSide === yAxisSides.RIGHT
-                  ? 0
-                  : yAxisLabelWidth + yAxisThickness,
+                ? 0
+                : yAxisLabelWidth + yAxisThickness,
             position: 'absolute',
             bottom: chartType === chartTypes.LINE_BI_COLOR ? 0 : xAxisThickness,
           },
@@ -194,7 +204,18 @@ const BarAndLineChartsWrapper = (props: BarAndLineChartsWrapperTypes) => {
             });
           }
         }}
-        {...remainingScrollViewProps}>
+        {...remainingScrollViewProps}
+        onScrollEndDrag={e => {
+          const velocity = e.nativeEvent.velocity?.x;
+
+          if (!velocity) return;
+
+          if (velocity > 0) {
+            props.onTryScroll?.('LEFT');
+          } else if (velocity < 0) {
+            props.onTryScroll?.('RIGHT');
+          }
+        }}>
         <Fragment>
           {showVerticalLines ? (
             <RenderVerticalLines {...verticalLinesProps} />

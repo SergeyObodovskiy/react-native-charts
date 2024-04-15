@@ -2,13 +2,19 @@ import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 import {Animated, Easing, View} from 'react-native';
 import RenderBars from './RenderBars';
 import RenderStackBars from './RenderStackBars';
-import BarAndLineChartsWrapper from '../Components/BarAndLineChartsWrapper';
+import BarAndLineChartsWrapper, {
+  OnTryScrollHanlder,
+} from '../Components/BarAndLineChartsWrapper';
 import {BarChartPropsType, useBarChart} from 'gifted-charts-core';
 import {StripAndLabel} from '../Components/common/StripAndLabel';
 import {Pointer} from '../Components/common/Pointer';
 import {screenWidth} from '../utils';
 
-export const BarChart = (props: BarChartPropsType) => {
+export const BarChart = (
+  props: BarChartPropsType & {
+    onTryScroll?: OnTryScrollHanlder;
+  },
+) => {
   const heightValue = useMemo(() => new Animated.Value(0), []);
   const opacValue = useMemo(() => new Animated.Value(0), []);
   const widthValue = useMemo(() => new Animated.Value(0), []);
@@ -368,6 +374,7 @@ export const BarChart = (props: BarChartPropsType) => {
       scrollRef={scrollRef}
       renderChartContent={renderChartContent}
       remainingScrollViewProps={remainingScrollViewProps}
+      onTryScroll={props.onTryScroll}
     />
   );
 };
