@@ -17,6 +17,7 @@ jobs:
           scope: '@SergeyObodovskiy'
 
       - name: Publish package on NPM 📦
+        uses: ./
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
