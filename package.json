@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/SergeyObodovskiy/react-native-charts",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "gifted-charts-core": "^0.1.4"
