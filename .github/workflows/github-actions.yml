@@ -16,10 +16,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@SergeyObodovskiy'
 
-      - name: Configure Git
-        run: |
-          git config user.email "s.obodovsky@softteco.com"
-          git config user.name "Sergey Obodovsky"
+#      - name: Configure Git
+#        run: |
+#          git config user.email "s.obodovsky@softteco.com"
+#          git config user.name "Sergey Obodovsky"
 
 
       # Publish to npm
