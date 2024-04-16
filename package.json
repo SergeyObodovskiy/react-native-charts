@@ -1,7 +1,7 @@
 {
-  "name": "react-native-gifted-charts",
+  "name": "react-native-charts",
   "version": "1.4.10",
-  "description": "The most complete library for Bar, Line, Area, Pie, Donut, Stacked Bar and Population Pyramid charts in React Native. Allows 2D, 3D, gradient, animations and live data updates.",
+  "description": "Fork of react-native-gifted-charts. The most complete library for Bar, Line, Area, Pie, Donut, Stacked Bar and Population Pyramid charts in React Native. Allows 2D, 3D, gradient, animations and live data updates.",
   "main": "src/index.tsx",
   "files": [
     "src"
@@ -13,13 +13,13 @@
     "test": "jest",
     "lint": "eslint ."
   },
-  "repository": "https://github.com/Abhinandan-Kushwaha/react-native-gifted-charts",
-  "author": "Abhinandan Kushwaha <kushabhi5@gmail.com> (https://github.com/Abhinandan-Kushwaha)",
+  "repository": "https://github.com/SergeyObodovskiy/react-native-charts",
+  "author": "Sergey Obodovsky <s.obodovsky@softteco.com> (https://github.com/SergeyObodovskiy)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Abhinandan-Kushwaha/react-native-gifted-charts/issues"
+    "url": "https://github.com/SergeyObodovskiy/react-native-charts/issues"
   },
-  "homepage": "https://gifted-charts.web.app/",
+  "homepage": "https://github.com/SergeyObodovskiy/react-native-charts",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
